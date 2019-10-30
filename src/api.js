@@ -31,10 +31,9 @@ var db = firebase.database();
 var ref = db.ref("trash");
 
 var usersRef = ref.child("garbage");
-usersRef.push().set("i am a can");
 
 router.get("/", (req, res) => {
-  return null;
+  usersRef.push().set("i am a can");
 });
 
 app.use(`/.netlify/functions/api`, router);
