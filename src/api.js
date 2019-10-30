@@ -8,7 +8,7 @@ firebase.initializeApp({
   credential: firebase.credential.cert({
     type: "service_account",
     project_id: "only-one-planet",
-    private_key_id: process.env.FB_PRIVATE_KEY_ID,
+    private_key_id: JSON.parse(process.env.FB_PRIVATE_KEY_ID),
     private_key: JSON.parse(process.env.FB_PRIVATE_KEY),
     client_email:
       "firebase-adminsdk-bgs28@only-one-planet.iam.gserviceaccount.com",
