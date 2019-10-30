@@ -1,6 +1,5 @@
 const express = require("express");
 const serverless = require("serverless-http");
-require("dotenv").config();
 const app = express();
 const router = express.Router();
 var firebase = require("firebase-admin");
@@ -10,7 +9,7 @@ firebase.initializeApp({
     type: "service_account",
     project_id: "only-one-planet",
     private_key_id: process.env.PRIVATE_KEY_ID,
-    private_key: process.env.PRIVATE_KEY.replace(/\\n/g, "\n"),
+    private_key: JSON.parse(process.env.PRIVATE_KEY),
     client_email:
       "firebase-adminsdk-bgs28@only-one-planet.iam.gserviceaccount.com",
     client_id: "105516695166122801845",
@@ -29,7 +28,7 @@ var ref = db.ref("trash");
 var usersRef = ref.child("garbage");
 
 router.get("/", (req, res) => {
-  usersRef.push().set("i am a can");
+  usersRef.push().set("i am fun");
   res.json({
     trashing: "garbing"
   });
