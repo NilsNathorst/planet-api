@@ -1,2 +1,2 @@
 # planet-api
-Tick Tock 
+tick tock
