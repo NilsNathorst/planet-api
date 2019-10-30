@@ -34,6 +34,9 @@ var usersRef = ref.child("garbage");
 
 router.get("/", (req, res) => {
   usersRef.push().set("i am a can");
+  res.json({
+    trashing: "garbing"
+  });
 });
 
 app.use(`/.netlify/functions/api`, router);
