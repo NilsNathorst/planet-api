@@ -1,8 +1,9 @@
 const express = require("express");
 const serverless = require("serverless-http");
+var firebase = require("firebase-admin");
 const app = express();
 const router = express.Router();
-var firebase = require("firebase-admin");
+firebase.initializeApp();
 
 firebase.initializeApp({
   credential: firebase.credential.cert({
@@ -25,10 +26,10 @@ firebase.initializeApp({
 var db = firebase.database();
 var ref = db.ref("trash");
 
-var usersRef = ref.child("garbage");
+var trashRef = ref.child("garbage");
 
 router.get("/", (req, res) => {
-  usersRef.push().set("i am fun");
+  trashRef.push().set("i am fun");
   res.json({
     trashing: "garbing"
   });
