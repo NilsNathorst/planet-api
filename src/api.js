@@ -31,7 +31,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   // trashRef.push().set("i am fun");
   res.json({
-    trashing: "garbing"
+    message: "Hejsan"
   });
 });
 
